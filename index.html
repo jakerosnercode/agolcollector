@@ -24,7 +24,7 @@
 
   <!-- loading the modules -->
   <script>
-    require(["esri/config", "esri/Map", "esri/views/MapView"], (esriConfig, Map, MapView) => {
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate"], (esriConfig, Map, MapView, Locate) => {
 
       // adding in API Key
       esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurEMEVQbKvAbZnpzPKZRxuMNtUzDq8ag3E3FbEUVJMU0hrtmVGRJepK1vokNRd6QHYHvJ59WIxIBvBCEs9cPVdWnD4aXedEaWZSNwNzqqh5gyGL2CcmseyfeF5Gt8e3Mi7KdSA7BcKz3dTA6_yKBu_g1SbTFM-Zp9MUafCKP5vn2qhGgQBFLx91QEhf6EinAD207CcjqmQhLAFQ4sF6MsT9U.AT1_xORu7DFJ";
@@ -35,10 +35,19 @@
 
       const view = new MapView({
         container: "viewDiv", // Reference to the DOM node that will contain the view
-        map: map,             // References the map object
+        map: map,            // References the map object
         center: [-118.805, 34.027], // Longitude, Latitude for the initial center
         zoom: 13 // Zoom level (1-20), 1 being the furthest zoomed out
       });
+
+      const locateBtn = new Locate({
+          view: view
+        });
+
+        // Add the locate widget to the top left corner of the view
+        view.ui.add(locateBtn, {
+          position: "top-left"
+        });
 
     });
   </script>
