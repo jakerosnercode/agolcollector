@@ -7,32 +7,42 @@
 
   <style>
     html,
-    body,
-    #viewDiv {
-      padding: 0;
+    body {
       margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #appContainer {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+
+    #viewDiv {
       height: 100%;
       width: 100%;
     }
 
     .addRecordBtn {
-  position: absolute;
-  z-index: 10;
-  top: 10px;
-  right: 10px;
-  background-color: #0079c1;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  text-decoration: none;
-}
+      position: absolute;
+      z-index: 99; /* ensure it's above the map and widgets */
+      top: 10px;
+      right: 10px;
+      background-color: #0079c1;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+    }
 
-.addRecordBtn:hover {
-  background-color: #005a87;
-}
+    .addRecordBtn:hover {
+      background-color: #005a87;
+    }
   </style>
 
   <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
@@ -66,11 +76,10 @@
       });
 
       const layer = new FeatureLayer({ 
-  // URL to the service 
-   url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_028286bf3bf64e22ae9ec4f1e7703f6b_results/FeatureServer"
-});
+        url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_028286bf3bf64e22ae9ec4f1e7703f6b_results/FeatureServer"
+      });
 
-map.add(layer);
+      map.add(layer);
 
       const searchWidget = new Search({
         view: view,
@@ -88,7 +97,10 @@ map.add(layer);
   </script>
 </head>
 <body>
-<a href="https://arcg.is/1WzjCP1" target="_blank" class="addRecordBtn">Add Record</a>
-  <div id="viewDiv"></div>
+  <div id="appContainer">
+    <div id="viewDiv"></div>
+    <a href="https://arcg.is/1WzjCP1" target="_blank" class="addRecordBtn">Add Record</a>
+  </div>
 </body>
 </html>
+
