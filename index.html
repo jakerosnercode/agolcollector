@@ -3,16 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-
-  <title>Data Collector for AGOL</title>
+  <title>ArcGIS Map</title>
 
   <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
   <script src="https://js.arcgis.com/4.26/"></script>
 
   <style>
-    html,
-    body,
-    #viewDiv {
+    html, body, #viewDiv {
       padding: 0;
       margin: 0;
       height: 100%;
@@ -30,19 +27,17 @@
       "esri/Map",
       "esri/views/MapView"
     ], function(esriConfig, Map, MapView) {
-      
 
-      esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurEMEVQbKvAbZnpzPKZRxuMNtUzDq8ag3E3FbEUVJMU0hrtmVGRJepK1vokNRd6QHYHvJ59WIxIBvBCEs9cPVdWnD4aXedEaWZSNwNzqqh5gyGL2CcmseyfeF5Gt8e3Mi7KdSA7BcKz3dTA6_yKBu_g1SbTFM-Zp9MUafCKP5vn2qhGgQBFLx91QEhf6EinAD207CcjqmQhLAFQ4sF6MsT9U.AT1_xORu7DFJ"; 
+      esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurEMEVQbKvAbZnpzPKZRxuMNtUzDq8ag3E3FbEUVJMU0hrtmVGRJepK1vokNRd6QHYHvJ59WIxIBvBCEs9cPVdWnD4aXedEaWZSNwNzqqh5gyGL2CcmseyfeF5Gt8e3Mi7KdSA7BcKz3dTA6_yKBu_g1SbTFM-Zp9MUafCKP5vn2qhGgQBFLx91QEhf6EinAD207CcjqmQhLAFQ4sF6MsT9U.AT1_xORu7DFJ";
 
       const map = new Map({
         basemap: "satellite"
       });
 
-      
       const view = new MapView({
         container: "viewDiv",
         map: map,
-        center: [-97.7431, 30.2672], // Austin, TX (example)
+        center: [-97.7431, 30.2672], // Austin, TX
         zoom: 10
       });
 
